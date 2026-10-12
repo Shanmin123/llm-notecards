@@ -27,9 +27,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-import pandas as pd
-
-from qilin_notecard_biencoder import (
+from common import (
     DEFAULT_QILIN_DIR,
     DEFAULT_QRELS_PATH,
     DEFAULT_TEST_NOTECARD,
@@ -40,7 +38,6 @@ from qilin_notecard_biencoder import (
     calculate_metrics,
     candidate_ids_from_row,
     click_value,
-    collect_candidate_map,
     coverage_stats,
     create_optimizer,
     create_scheduler,

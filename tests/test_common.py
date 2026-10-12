@@ -5,14 +5,14 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MODULE_PATH = ROOT / "src" / "qilin_notecard_biencoder.py"
-spec = importlib.util.spec_from_file_location("qilin_notecard_biencoder", MODULE_PATH)
+MODULE_PATH = ROOT / "src" / "common.py"
+spec = importlib.util.spec_from_file_location("common", MODULE_PATH)
 mod = importlib.util.module_from_spec(spec)
 sys.modules[spec.name] = mod
 spec.loader.exec_module(mod)
 
 
-class QilinNotecardBiEncoderTests(unittest.TestCase):
+class CommonTests(unittest.TestCase):
     def test_parse_ranked_candidates_sorts_pairs(self):
         ranked = mod.parse_ranked_candidates([[3, 0.1], [5, 2.0], [4, 1.0]], top_k=2)
         self.assertEqual(ranked, [5, 4])

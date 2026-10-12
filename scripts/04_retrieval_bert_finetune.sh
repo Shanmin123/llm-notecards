@@ -18,7 +18,7 @@ TRAIN_MODES=(original combined)
 #     copy them to $OUT/hard_negatives/ to skip this step.
 for MODE in "${TRAIN_MODES[@]}"; do
   if [[ ! -f "$OUT/hard_negatives/$MODE.json" ]]; then
-    python src/qwen3_embedding_global_ft.py --stage mine --model_name Qwen/Qwen3-Embedding-0.6B \
+    python src/retrieval_train.py --stage mine --model_name Qwen/Qwen3-Embedding-0.6B \
       --mine_modes "$MODE" --eval_batch_size 4 --max_length 256 --fp16 --output_dir "$OUT"
   fi
 done
@@ -33,15 +33,15 @@ COMMON=(
 )
 for LR in 2e-5 5e-5; do
   for MODE in "${TRAIN_MODES[@]}"; do
-    python src/qwen3_embedding_global_ft.py "${COMMON[@]}" --lr "$LR" --train_mode "$MODE" \
+    python src/retrieval_train.py "${COMMON[@]}" --lr "$LR" --train_mode "$MODE" \
       --run_name "bert_${MODE}_lr${LR}"
   done
 done
-python src/qwen3_embedding_global_ft.py --stage aggregate --output_dir "$OUT"
+python src/retrieval_train.py --stage aggregate --output_dir "$OUT"
 
 # (3) Test evaluation of the selected learning rate
 for MODE in "${TRAIN_MODES[@]}"; do
-  python src/eval_global_retrieve_existing.py --checkpoint_type full --model_name bert-base-chinese \
+  python src/retrieval_eval.py --checkpoint_type full --model_name bert-base-chinese \
     --checkpoint_path "$OUT/runs/bert_${MODE}_lr5e-5/model" --run_name "bert_${MODE}_lr5e-5_test" \
     --train_mode "$MODE" --negative_strategy hard_mined_plus_exposure --lr 5e-5 \
     --eval_splits test --eval_modes original summary combined \

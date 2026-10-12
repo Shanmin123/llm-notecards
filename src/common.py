@@ -1004,7 +1004,6 @@ def main() -> None:
     val_candidate_map = collect_candidate_map(val_rows, "details", None, args.val_start)
     test_candidate_map = collect_candidate_map(test_rows, args.candidate_key, args.candidate_depth, args.test_start)
 
-    train_qrels = qrels_from_details(train_rows, args.train_start, args.positive_fields)
     val_qrels = qrels_from_details(val_rows, args.val_start, args.positive_fields)
     test_qrels = load_qrels(args.qrels_path, args.test_start, args.test_end)
     if not test_qrels:

@@ -7,7 +7,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-python src/run_expanded_corpus_retrieve.py --models bert_zero \
+python src/retrieval_zero_shot.py --models bert_zero \
   --query_start 0 --query_end 1000 --corpus_start 0 --corpus_end 6192 \
   --bert_batch_size 32 --bert_max_length 256 --fp16 \
   --output_dir outputs/expanded_retrieval_zero_shot

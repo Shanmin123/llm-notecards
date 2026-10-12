@@ -2,7 +2,7 @@
 """Expanded-pool dense retrieval with note-card document representations:
 zero-shot evaluation, hard-negative mining and fine-tuning (paper, Table 2).
 
-Despite the file name, this runner is used for both retrievers in the paper:
+The runner is used for both retrievers in the paper:
   - BERT bi-encoder:      --model_name bert-base-chinese --full_param
                           (mean pooling, raw queries, dot-product scores)
   - Qwen3-Embedding-0.6B: --model_name Qwen/Qwen3-Embedding-0.6B --qwen_official_style
@@ -36,7 +36,7 @@ from typing import Any
 
 import numpy as np
 
-from qilin_notecard_biencoder import (
+from common import (
     DEFAULT_OUTPUT_ROOT,
     DEFAULT_QILIN_DIR,
     DEFAULT_QRELS_PATH,
@@ -45,7 +45,6 @@ from qilin_notecard_biencoder import (
     POSITIVE_FIELDS,
     build_note_text,
     calculate_metrics,
-    candidate_ids_from_row,
     collect_candidate_map,
     encode_texts,
     is_negative_detail,

@@ -22,9 +22,8 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
-import pandas as pd
 
-from qilin_notecard_biencoder import (
+from common import (
     DEFAULT_OUTPUT_ROOT,
     DEFAULT_QILIN_DIR,
     DEFAULT_QRELS_PATH,

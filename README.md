@@ -61,12 +61,12 @@ llm-notecards/
 │   ├── generate_notecards.py              #    LLM generation (resumable, regenerates malformed cards)
 │   └── evaluate_card_quality.py           #    format / field-validity audit (Section 4)
 ├── src/                                   # B + C. representations, retrieval, cross-encoder reranking
-│   ├── qilin_notecard_biencoder.py        #    data loading, representations, metrics (shared)
-│   ├── run_expanded_corpus_retrieve.py    #    zero-shot expanded-pool retrieval
-│   ├── qwen3_embedding_global_ft.py       #    retriever fine-tuning: BERT bi-encoder, Qwen3-Embedding
-│   ├── eval_global_retrieve_existing.py   #    test evaluation of saved retrievers
-│   ├── qilin_notecard_cross_encoder.py    #    MacBERT / RoBERTa cross-encoder training
-│   └── qilin_notecard_cross_encoder_eval_existing.py  # train x inference reranking grid
+│   ├── common.py                          #    data loading, representations, metrics (shared)
+│   ├── retrieval_zero_shot.py             #    zero-shot expanded-pool retrieval
+│   ├── retrieval_train.py                 #    hard-negative mining + fine-tuning (BERT, Qwen3-Embedding)
+│   ├── retrieval_eval.py                  #    test evaluation of saved retrievers
+│   ├── rerank_cross_encoder.py            #    MacBERT / RoBERTa cross-encoder training
+│   └── rerank_cross_encoder_eval.py       #    train x inference reranking grid
 ├── qwen3_reranker/                        # C. Qwen3-Reranker-0.6B fine-tuning and evaluation
 │   ├── train.py
 │   └── eval.py
@@ -121,8 +121,9 @@ Run the scripts from the repository root. Each step writes to `outputs/`.
 **Protocol.** Training queries `search_train[0:4000]`, validation `search_train[4000:5000]`, test
 `search_test[0:1000]`, scored with the official `search.test.qrels.csv`. Expanded-pool retrieval ranks the
 union of the exposed candidates of `search_test[0:6192]` that have a card (113,548 notes, covering all
-5,566 relevant notes); reranking reorders each query's own `search_results` candidates. Every trained model
-is selected on validation and evaluated once on test. MAP@k normalises average precision by min(k, R<sub>q</sub>).
+5,566 relevant notes); reranking reorders each query's own exposed candidates. Retriever learning rates are
+selected on validation MRR@10 (BERT 5e-5, Qwen3-Embedding 2e-6) and Qwen3-Reranker keeps the epoch with the
+lowest validation loss. MAP@k normalises average precision by min(k, R<sub>q</sub>).
 
 **Representation names in the code.** The `--modes` / `--train_mode` / `--eval_mode` arguments use
 

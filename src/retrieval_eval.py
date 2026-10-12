@@ -15,11 +15,10 @@ from __future__ import annotations
 import argparse
 import csv
 import gc
-import json
 from pathlib import Path
 from typing import Any
 
-from qwen3_embedding_global_ft import (
+from retrieval_train import (
     DEFAULT_OUTPUT,
     DEFAULT_QWEN_QUERY_INSTRUCTION,
     DEFAULT_QILIN_DIR,

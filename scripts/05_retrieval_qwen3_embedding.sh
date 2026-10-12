@@ -17,20 +17,20 @@ QWEN=(
 )
 
 # (1) Zero-shot, validation + test
-python src/qwen3_embedding_global_ft.py --stage zero_shot "${QWEN[@]}" --eval_batch_size 4 \
+python src/retrieval_train.py --stage zero_shot "${QWEN[@]}" --eval_batch_size 4 \
   --eval_splits val test --eval_modes original summary combined
 
 # (2) Hard negatives mined with the zero-shot model
-python src/qwen3_embedding_global_ft.py --stage mine "${QWEN[@]}" --eval_batch_size 32 \
+python src/retrieval_train.py --stage mine "${QWEN[@]}" --eval_batch_size 32 \
   --mine_modes "${TRAIN_MODES[@]}" --force
 
 # (3) LoRA fine-tuning (r=16, alpha=32), validation + test
 for LR in 2e-6 1e-6; do
   for MODE in "${TRAIN_MODES[@]}"; do
-    python src/qwen3_embedding_global_ft.py --stage train "${QWEN[@]}" --eval_batch_size 32 \
+    python src/retrieval_train.py --stage train "${QWEN[@]}" --eval_batch_size 32 \
       --train_batch_size 4 --grad_accum_steps 8 --negative_samples 8 --epochs 1 --gradient_checkpointing \
       --negative_strategy hard_mined_only --lr "$LR" --train_mode "$MODE" \
       --eval_splits val test --eval_all_modes --run_name "qwen_${MODE}_lr${LR}_lora"
   done
 done
-python src/qwen3_embedding_global_ft.py --stage aggregate --output_dir "$OUT"
+python src/retrieval_train.py --stage aggregate --output_dir "$OUT"

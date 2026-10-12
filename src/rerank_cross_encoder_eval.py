@@ -12,11 +12,10 @@ from __future__ import annotations
 
 import argparse
 import csv
-import json
 from pathlib import Path
 from typing import Any
 
-from qilin_notecard_biencoder import (
+from common import (
     DEFAULT_QILIN_DIR,
     DEFAULT_QRELS_PATH,
     TEXT_MODES,
@@ -27,7 +26,7 @@ from qilin_notecard_biencoder import (
     load_search_slice,
     qrels_from_details,
 )
-from qilin_notecard_cross_encoder import (
+from rerank_cross_encoder import (
     DEFAULT_COMPLETED_TEST_NOTECARD,
     DEFAULT_TRAIN_NOTECARD,
     CrossEncoderModel,

@@ -23,7 +23,6 @@ os.environ.setdefault('HF_DATASETS_OFFLINE', '1')
 
 import pandas as pd
 import torch
-import torch.nn.functional as F
 from tqdm import tqdm
 from transformers import AutoTokenizer, AutoModelForCausalLM
 

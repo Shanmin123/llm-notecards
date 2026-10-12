@@ -17,14 +17,14 @@ for SPEC in "macbert hfl/chinese-macbert-base" "roberta hfl/chinese-roberta-wwm-
   read -r NAME MODEL <<< "$SPEC"
   TRAIN_DIR="outputs/rerank_cross_encoder/$NAME/train"
 
-  python src/qilin_notecard_cross_encoder.py --model_name_or_path "$MODEL" --modes "${MODES[@]}" \
+  python src/rerank_cross_encoder.py --model_name_or_path "$MODEL" --modes "${MODES[@]}" \
     --train_start 0 --train_end 4000 --val_start 4000 --val_end 5000 --eval_val "${SPLIT[@]}" \
     --negative_policy qilin_official_nonzero --negative_samples 10 --epochs 1 \
     --train_batch_size 2 --eval_batch_size 8 --max_length 512 \
     --optimizer adamw --lr 2e-5 --weight_decay 0.01 --scheduler linear --linear_total_iters 10 \
     --fp16 --gradient_checkpointing --output_dir "$TRAIN_DIR"
 
-  python src/qilin_notecard_cross_encoder_eval_existing.py --checkpoint_root "$TRAIN_DIR" \
+  python src/rerank_cross_encoder_eval.py --checkpoint_root "$TRAIN_DIR" \
     --trained_modes "${MODES[@]}" --eval_modes "${MODES[@]}" "${SPLIT[@]}" \
     --eval_batch_size 8 --max_length 512 --fp16 \
     --output_dir "outputs/rerank_cross_encoder/$NAME/cross_eval"
