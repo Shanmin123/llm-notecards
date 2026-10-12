@@ -1,18 +1,23 @@
 # When Do LLM-Generated Note Cards Help Retrieval and Reranking?
 
 <p align="center">
-  <img src="https://img.shields.io/badge/SynthIR%20%40%20SIGIR-2026-1f6feb" alt="SynthIR @ SIGIR 2026">
+  <a href="paper.pdf"><img src="https://img.shields.io/badge/paper-PDF-b31b1b" alt="Paper PDF"></a>
+  <a href="https://openreview.net/forum?id=us86HOM1oD"><img src="https://img.shields.io/badge/OpenReview-us86HOM1oD-8c1b13" alt="OpenReview"></a>
+  <a href="https://xdeadlocked.github.io/SynthIR_Web/SIGIR2026Workshop-SynthIR"><img src="https://img.shields.io/badge/SynthIR%20%40%20SIGIR-2026-1f6feb" alt="SynthIR @ SIGIR 2026"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
   <a href="https://github.com/Shanmin123/llm-notecards/releases"><img src="https://img.shields.io/badge/data-note%20cards-orange" alt="note cards"></a>
-  <img src="https://img.shields.io/badge/python-3.10-blue" alt="python 3.10">
 </p>
 
 Code and data for the SynthIR @ SIGIR 2026 workshop paper
 
 > **When Do LLM-Generated Note Cards Help Retrieval and Reranking?**<br>
 > Shanmin Sun\*, Xinlu Lin\* (University of Edinburgh)<br>
-> *Workshop on Synthetic Content in Information Retrieval Ecosystems (SynthIR) at SIGIR 2026, Melbourne, Australia*<br>
+> *The 1st Workshop on Synthetic Content in Information Retrieval Ecosystems (SynthIR) at SIGIR 2026*,
+> Melbourne, Australia, July 24, 2026<br>
 > \* Equal contribution
+>
+> [[Paper (PDF)]](paper.pdf) [[OpenReview]](https://openreview.net/forum?id=us86HOM1oD)
+> [[Workshop]](https://xdeadlocked.github.io/SynthIR_Web/SIGIR2026Workshop-SynthIR) [[Citation]](#citation)
 
 <p align="center">
   <img src="assets/pipeline.png" width="95%" alt="Overview of the note-card pipeline">
@@ -49,6 +54,7 @@ gives little to Qwen3-Embedding-0.6B, and helps Qwen3-Reranker mainly through *c
 
 ```
 llm-notecards/
+├── paper.pdf                              # the paper (camera-ready)
 ├── assets/pipeline.png                    # Figure 1
 ├── data/                                  # Qilin data + released note cards (see data/README.md)
 ├── notecard_generation/                   # A. note-card generation
@@ -221,12 +227,13 @@ Its card, as stored in `data/test_notecard.json`:
 If you use this code or the note cards, please cite our paper and the Qilin dataset:
 
 ```bibtex
-@inproceedings{sun2026notecards,
-  title     = {When Do {LLM}-Generated Note Cards Help Retrieval and Reranking?},
-  author    = {Sun, Shanmin and Lin, Xinlu},
-  booktitle = {Workshop on Synthetic Content in Information Retrieval Ecosystems (SynthIR) at SIGIR 2026},
-  address   = {Melbourne, Australia},
-  year      = {2026}
+@inproceedings{
+sun2026when,
+title={When Do {LLM}-Generated Note Cards Help Retrieval and Reranking?},
+author={Shanmin Sun and Xinlu Lin},
+booktitle={The 1st Workshop on Synthetic Content in Information Retrieval Ecosystems},
+year={2026},
+url={https://openreview.net/forum?id=us86HOM1oD}
 }
 
 @inproceedings{chen2025qilin,

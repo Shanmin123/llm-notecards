@@ -18,9 +18,12 @@ preferred-citation:
     - family-names: Lin
       given-names: Xinlu
       affiliation: University of Edinburgh
-  collection-title: "Workshop on Synthetic Content in Information Retrieval Ecosystems (SynthIR) at SIGIR 2026"
+  collection-title: "The 1st Workshop on Synthetic Content in Information Retrieval Ecosystems"
   conference:
     name: "SynthIR @ SIGIR 2026"
     city: Melbourne
     country: AU
+    date-start: 2026-07-24
+    date-end: 2026-07-24
+  url: "https://openreview.net/forum?id=us86HOM1oD"
   year: 2026
