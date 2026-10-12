@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this code or the note cards, please cite the paper below."
+title: "llm-notecards"
+authors:
+  - family-names: Sun
+    given-names: Shanmin
+  - family-names: Lin
+    given-names: Xinlu
+license: MIT
+repository-code: "https://github.com/Shanmin123/llm-notecards"
+preferred-citation:
+  type: conference-paper
+  title: "When Do LLM-Generated Note Cards Help Retrieval and Reranking?"
+  authors:
+    - family-names: Sun
+      given-names: Shanmin
+      affiliation: University of Edinburgh
+    - family-names: Lin
+      given-names: Xinlu
+      affiliation: University of Edinburgh
+  collection-title: "Workshop on Synthetic Content in Information Retrieval Ecosystems (SynthIR) at SIGIR 2026"
+  conference:
+    name: "SynthIR @ SIGIR 2026"
+    city: Melbourne
+    country: AU
+  year: 2026

@@ -1,0 +1,13 @@
+torch>=2.1
+transformers>=4.51
+accelerate
+peft>=0.10
+numpy
+pandas
+pyarrow
+tqdm
+huggingface_hub
+# optional: --optimizer lamb (cross-encoder / bi-encoder runners)
+torch_optimizer
+# optional: BM25 reference in src/run_expanded_corpus_retrieve.py
+rank_bm25

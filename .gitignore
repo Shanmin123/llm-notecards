@@ -1,0 +1,19 @@
+# data and run outputs (see data/README.md)
+data/*
+!data/README.md
+outputs/
+*.zip
+
+# python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# os / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
