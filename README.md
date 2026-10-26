@@ -14,7 +14,6 @@ Code and data for the SynthIR @ SIGIR 2026 workshop paper
 > Shanmin Sun\*, Xinlu Lin\* (University of Edinburgh)<br>
 > *The 1st Workshop on Synthetic Content in Information Retrieval Ecosystems (SynthIR) at SIGIR 2026*,
 > Melbourne, Australia, July 24, 2026<br>
-> \* Equal contribution
 >
 > [[Paper (PDF)]](paper.pdf) [[OpenReview]](https://openreview.net/forum?id=us86HOM1oD)
 > [[Workshop]](https://xdeadlocked.github.io/SynthIR_Web/SIGIR2026Workshop-SynthIR) [[Citation]](#citation)
