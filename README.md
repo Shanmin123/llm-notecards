@@ -249,8 +249,7 @@ url={https://openreview.net/forum?id=us86HOM1oD}
 ## Acknowledgements
 
 We thank the authors of [Qilin](https://github.com/RED-Search/Qilin) for the dataset and baseline code that
-our cross-encoder and bi-encoder setups follow, and the Qwen team for the open models. The note-card prompt
-and the Qwen3-Reranker training and evaluation code were written by Xinlu Lin and first released in
+our cross-encoder and bi-encoder setups follow, and the Qwen team for the open models. The Qwen3-Reranker training and evaluation code were written by Xinlu Lin 
 [AzumaLin/qilin-note-rerank](https://github.com/AzumaLin/qilin-note-rerank).
 
 ## License
