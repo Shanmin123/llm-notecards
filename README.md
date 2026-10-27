@@ -11,7 +11,7 @@
 Code and data for the SynthIR @ SIGIR 2026 workshop paper
 
 > **When Do LLM-Generated Note Cards Help Retrieval and Reranking?**<br>
-> Shanmin Sun\*, Xinlu Lin\* (University of Edinburgh)<br>
+> Shanmin Sun, Xinlu Lin (University of Edinburgh)<br>
 > *The 1st Workshop on Synthetic Content in Information Retrieval Ecosystems (SynthIR) at SIGIR 2026*,
 > Melbourne, Australia, July 24, 2026<br>
 >
